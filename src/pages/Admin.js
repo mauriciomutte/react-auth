@@ -1,9 +1,12 @@
 import React from 'react';
 
-function Admin(props) {
+import { Button } from '../components/AuthForm';
+
+export default function Admin(props) {
   return (
-    <div>Admin Page</div>
+    <div>
+      <div>Admin Page</div>
+      <Button>Log out</Button>
+    </div>
   );
 }
-
-export default Admin;
