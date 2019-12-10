@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Admin from './pages/Admin';
+import PrivateRoute from './PrivateRoute';
 import { AuthContext } from './context/auth';
 
 function App(props) {
@@ -27,6 +28,7 @@ function App(props) {
           </ul>
 
           <Route exact path="/" component={Home} />
+          <PrivateRoute path="/admin" component={Admin} />
         </div>
       </Router>
     </AuthContext.Provider>
