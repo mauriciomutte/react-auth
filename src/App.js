@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
-import Admin from './pages/Admin';
+import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import PrivateRoute from './PrivateRoute';
@@ -21,13 +21,13 @@ function App(props) {
         <div>
           <ul>
             <li>
-              <Link to="/admin">Admin Page</Link>
+              <Link to="/">Home</Link>
             </li>
           </ul>
 
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          <PrivateRoute path="/admin" component={Admin} />
+          <PrivateRoute exact path="/" component={Home} />
         </div>
       </Router>
     </AuthContext.Provider>
