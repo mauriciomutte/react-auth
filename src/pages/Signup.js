@@ -8,13 +8,15 @@ import { useAuth } from '../context/auth';
 export default function Signup() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { setAuthTokens } = useAuth();
 
   function postSignup() {
     axios.post('URL', {
-      username,
+      name,
+      email,
       password
     }).then(result => {
       if(result.status === 200) {
@@ -35,10 +37,16 @@ export default function Signup() {
   return (
     <Card>
       <Form>
-      <Input 
-          type="username" 
-          value={username}
-          onChange={e => { setUsername(e.target.value) }}
+        <Input
+          type="text"
+          value={name}
+          onChange={e => { setName(e.target.value) }}
+          placeholder="name"
+        />
+        <Input 
+          type="email" 
+          value={email}
+          onChange={e => { setEmail(e.target.value) }}
           placeholder="email"
         />
         <Input 
@@ -47,11 +55,7 @@ export default function Signup() {
           onChange={e => { setPassword(e.target.value) }}
           placeholder="password"
         />
-        <Input 
-          type="password" 
-          placeholder="password again"
-        />
-        <Button onClick={postSignup}>Sign Up</Button>
+        <Button type="submit" onClick={postSignup}>Sign Up</Button>
       </Form>
       <Link to="/login">Already have an account?</Link>
     </Card>

@@ -8,15 +8,14 @@ import { useAuth } from '../context/auth';
 export default function Login(props) {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const { setAuthTokens } = useAuth();
-  const referer = props.location.state.referer || '/';
 
   function postLogin() {
     axios.post('URL', {
-      username,
+      email,
       password
     }).then(result => {
       if(result.status === 200) {
@@ -31,16 +30,16 @@ export default function Login(props) {
   }
 
   if (isLoggedIn) {
-    return <Redirect to={referer} />;
+    return <Redirect to="/" />;
   }
 
   return (
     <Card>
       <Form>
         <Input 
-          type="username" 
-          value={username}
-          onChange={e => { setUsername(e.target.value) }}
+          type="email" 
+          value={email}
+          onChange={e => { setEmail(e.target.value) }}
           placeholder="email"
         />
         <Input 
@@ -52,7 +51,7 @@ export default function Login(props) {
         <Button onClick={postLogin}>Sign In</Button>
       </Form>
       <Link to="/signup">Don't have an account?</Link>
-      { isError && <Error>The username or password provided were incorrect!</Error> }
+      { isError && <Error>The email or password provided were incorrect!</Error> }
     </Card>
   );
 }
