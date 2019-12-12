@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -17,11 +17,11 @@ function App(props) {
 
   return (
     <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
-      <Router>
+      <BrowserRouter>
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <PrivateRoute exact path="/" component={Home} />
-      </Router>
+      </BrowserRouter>
     </AuthContext.Provider>
   );
 }
