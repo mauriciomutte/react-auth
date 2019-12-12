@@ -10,7 +10,7 @@
     "packages/*"
 	],
 	"scripts": {
-		"start": "yarn start:web && start:server",
+		"start": "yarn start:web & yarn start:server",
 		"start:web": "yarn workspace web start",
 		"start:server": "yarn workspace server start"
 	},
