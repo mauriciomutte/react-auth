@@ -2,20 +2,19 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
-import { Card, Form, Input, Button } from '../components/AuthForm';
+import { Card, Form, Input, Button, Error } from '../components/AuthForm';
 import { useAuth } from '../context/auth';
 
-export default function Signup() {
+export default function Login(props) {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const { setAuthTokens } = useAuth();
 
-  function postSignup() {
-    axios.post('URL', {
-      name,
+  function postLogin() {
+    axios.post('http://localhost:3030/login', {
       email,
       password
     }).then(result => {
@@ -31,18 +30,12 @@ export default function Signup() {
   }
 
   if (isLoggedIn) {
-    return <Redirect to="/" />
+    return <Redirect to="/" />;
   }
 
   return (
     <Card>
       <Form>
-        <Input
-          type="text"
-          value={name}
-          onChange={e => { setName(e.target.value) }}
-          placeholder="name"
-        />
         <Input 
           type="email" 
           value={email}
@@ -55,9 +48,10 @@ export default function Signup() {
           onChange={e => { setPassword(e.target.value) }}
           placeholder="password"
         />
-        <Button type="submit" onClick={postSignup}>Sign Up</Button>
+        <Button onClick={postLogin}>Sign In</Button>
       </Form>
-      <Link to="/login">Already have an account?</Link>
+      <Link to="/signup">Don't have an account?</Link>
+      { isError && <Error>The email or password provided were incorrect!</Error> }
     </Card>
   );
 }
