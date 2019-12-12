@@ -10,7 +10,9 @@
     "packages/*"
 	],
 	"scripts": {
-		"start:web": "yarn workspace web start"
+		"start": "yarn start:web && start:server",
+		"start:web": "yarn workspace web start",
+		"start:server": "yarn workspace server start"
 	},
   "devDependencies": {
     "lerna": "^3.19.0"
