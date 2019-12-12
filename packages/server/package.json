@@ -2,7 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT",
+	"license": "MIT",
+	"scripts": {
+		"start": "node src/server.js"
+	},
   "dependencies": {
     "bcrypt": "^3.0.7",
     "cors": "^2.8.5",
