@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from '../components/AuthForm';
 import { useAuth } from '../context/auth';
 
-export default function Home(props) {
+export default function Home() {
 	const [, setToken] = useAuth();
 
   function logOut() {
