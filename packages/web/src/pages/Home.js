@@ -4,10 +4,11 @@ import { Button } from '../components/AuthForm';
 import { useAuth } from '../context/auth';
 
 export default function Home(props) {
-	const [, setState] = useAuth();
+	const [, setToken] = useAuth();
 
   function logOut() {
-		setState({token: null});
+		localStorage.clear();
+		setToken(null);
   }
 
   return (
