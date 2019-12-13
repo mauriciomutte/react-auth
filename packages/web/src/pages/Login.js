@@ -11,6 +11,7 @@ export default function Login(props) {
   const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
+	const [, setState] = useAuth();
 
   function postLogin() {
     axios.post('http://localhost:3030/login', {
@@ -18,6 +19,7 @@ export default function Login(props) {
       password
     }).then(result => {
       if(result.status === 200) {
+				setState(result.data);
         setLoggedIn(true);
       } else {
         setIsError(true);
