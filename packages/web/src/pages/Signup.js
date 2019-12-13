@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
-import { Card, Form, Input, Button } from '../components/AuthForm';
+import { Card, Title, Form, Input, Button, Error } from '../components/AuthForm';
 import { useAuth } from '../context/auth';
 
 export default function Signup() {
@@ -10,8 +10,7 @@ export default function Signup() {
   const [isError, setIsError] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const { setAuthTokens } = useAuth();
+	const [password, setPassword] = useState('');
 
   function postSignup() {
     axios.post('http://localhost:3030/register', {
@@ -20,7 +19,6 @@ export default function Signup() {
       password
     }).then(result => {
       if(result.status === 200) {
-        setAuthTokens(result.data);
         setLoggedIn(true);
       } else {
         setIsError(true);
@@ -36,6 +34,7 @@ export default function Signup() {
 
   return (
     <Card>
+			<Title>Signup</Title>
       <Form>
         <Input
           type="text"
@@ -43,14 +42,14 @@ export default function Signup() {
           onChange={e => { setName(e.target.value) }}
           placeholder="name"
         />
-        <Input 
-          type="email" 
+        <Input
+          type="email"
           value={email}
           onChange={e => { setEmail(e.target.value) }}
           placeholder="email"
         />
-        <Input 
-          type="password" 
+        <Input
+          type="password"
           value={password}
           onChange={e => { setPassword(e.target.value) }}
           placeholder="password"
@@ -58,6 +57,7 @@ export default function Signup() {
         <Button type="submit" onClick={postSignup}>Sign Up</Button>
       </Form>
       <Link to="/login">Already have an account?</Link>
+      { isError && <Error>Opsss, houve algum erro!</Error> }
     </Card>
   );
 }

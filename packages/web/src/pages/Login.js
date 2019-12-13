@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
-import { Card, Form, Input, Button, Error } from '../components/AuthForm';
+import { Card, Title, Form, Input, Button, Error } from '../components/AuthForm';
 import { useAuth } from '../context/auth';
 
 export default function Login(props) {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isError, setIsError] = useState(false);
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+	const [password, setPassword] = useState('');
 
-  const { setAuthTokens } = useAuth();
 
   function postLogin() {
     axios.post('http://localhost:3030/login', {
@@ -19,7 +18,6 @@ export default function Login(props) {
       password
     }).then(result => {
       if(result.status === 200) {
-        setAuthTokens(result.data);
         setLoggedIn(true);
       } else {
         setIsError(true);
@@ -35,15 +33,16 @@ export default function Login(props) {
 
   return (
     <Card>
+			<Title>Login</Title>
       <Form>
-        <Input 
-          type="email" 
+        <Input
+          type="email"
           value={email}
           onChange={e => { setEmail(e.target.value) }}
           placeholder="email"
         />
-        <Input 
-          type="password" 
+        <Input
+          type="password"
           value={password}
           onChange={e => { setPassword(e.target.value) }}
           placeholder="password"

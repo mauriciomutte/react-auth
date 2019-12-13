@@ -10,6 +10,11 @@ export const Card = styled.div`
   align-items: center;
 `;
 
+export const Title = styled.h1`
+	color: #6371c7;
+	font-size: 3rem;
+`;
+
 export const Form = styled.div`
   display: flex;
   flex-direction: column;
@@ -17,27 +22,24 @@ export const Form = styled.div`
 `;
 
 export const Input = styled.input`
-  padding: 1rem;
+  padding: .8rem;
   border: 1px solid #999;
+	border-radius: 5px;
   margin-bottom: 1rem;
   font-size: 0.8rem;
 `;
 
 export const Button = styled.button`
   background: linear-gradient(to bottom, #6371c7, #5563c1);
-  border-color: #3f4eae;
-  border-radius: 3px;
-  padding: 1rem;
+	border: none;
+  border-radius: 15px;
+	cursor: pointer;
+  padding: .9rem;
   color: white;
   font-weight: 700;
   width: 100%;
   margin-bottom: 1rem;
   font-size: 0.8rem;
-`;
-
-export const Logo = styled.img`
-  width: 50%;
-  margin-bottom: 1rem;
 `;
 
 export const Error = styled.div`
