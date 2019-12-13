@@ -28,7 +28,7 @@ export default function Signup() {
   }
 
   if (isLoggedIn) {
-    return <Redirect to="/" />
+    return <Redirect to="/" />;
   }
 
   return (
