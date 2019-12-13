@@ -3,7 +3,6 @@ import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 import { Card, Title, Form, Input, Button, Error } from '../components/AuthForm';
-import { useAuth } from '../context/auth';
 
 export default function Signup() {
   const [isLoggedIn, setLoggedIn] = useState(false);
