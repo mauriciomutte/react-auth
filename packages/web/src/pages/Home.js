@@ -3,16 +3,16 @@ import React from 'react';
 import { Button } from '../components/AuthForm';
 import { useAuth } from '../context/auth';
 
-export default function Admin(props) {
-  const { setAuthTokens } = useAuth();
+export default function Home(props) {
+	const [, setState] = useAuth();
 
   function logOut() {
-    setAuthTokens();
+		setState({token: null});
   }
 
   return (
     <div>
-      <div>Admin Page</div>
+      <div>Home Page</div>
       <Button onClick={logOut}>Log out</Button>
     </div>
   );
