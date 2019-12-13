@@ -7,15 +7,10 @@ export const useAuth = () => {
 }
 
 export const AuthProvider = ({ children }) => {
-	const token = localStorage.getItem('auth-token');
-	const [state, setState] = useState({ token });
-
-	useEffect(() => {
-		localStorage.setItem('auth-token', state.token);
-	}, [state])
+	const [token, setToken] = useState(localStorage.getItem('auth-token'));
 
 	return (
-		<AuthContext.Provider value={[state, setState]}>
+		<AuthContext.Provider value={[token, setToken]}>
 			{children}
 		</AuthContext.Provider>
 	);
