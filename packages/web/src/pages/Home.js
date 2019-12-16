@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button } from '../components/AuthForm';
+import { Card, Button, Title } from '../components/AuthForm';
 import { useAuth } from '../context/auth';
 
 export default function Home() {
@@ -12,9 +12,9 @@ export default function Home() {
   }
 
   return (
-    <div>
-      <div>Home Page</div>
+    <Card>
+      <Title>Home Page</Title>
       <Button onClick={logOut}>Log out</Button>
-    </div>
+    </Card>
   );
 }
