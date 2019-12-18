@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Card, Title, Form, Input, Button, Error } from '../components/AuthForm';
 import { useAuth } from '../context/auth';
 
-export default function Login(props) {
+export default function Login() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isError, setIsError] = useState(false);
   const [email, setEmail] = useState('');
