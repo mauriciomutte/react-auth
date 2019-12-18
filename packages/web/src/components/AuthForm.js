@@ -8,6 +8,10 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+	a {
+		color: #6371c7;
+	}
 `;
 
 export const Title = styled.h1`
