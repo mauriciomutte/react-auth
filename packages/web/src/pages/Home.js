@@ -2,7 +2,6 @@ import React from 'react';
 
 import Menu from '../components/Menu';
 import Main from '../components/Main';
-import { Button, Title } from '../components/AuthForm';
 import { useAuth } from '../context/auth';
 
 export default function Home() {
@@ -17,8 +16,6 @@ export default function Home() {
 		<div>
 			<Menu />
 			<Main>
-				<Title>Home Page</Title>
-				<Button onClick={logOut}>Log out</Button>
 			</Main>
 		</div>
   );
