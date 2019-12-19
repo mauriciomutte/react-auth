@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const MenuItem = styled.li`
 	margin: 8px 0;
@@ -22,7 +23,7 @@ const MenuItem = styled.li`
 export default ({ name, link }) => {
 	return (
 		<MenuItem>
-			<a href={link}>{name}</a>
+			<Link to={link}>{name}</Link>
 		</MenuItem>
 	);
 }
