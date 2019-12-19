@@ -6,9 +6,7 @@ import SessionUser from '../SessionUser';
 const Header = styled.div`
 	display: flex;
 	padding: 10px 20px;
-	align-items: centerPageTitle
-PitocoPageTitle
-Pitoco;
+	align-items: center;
 	justify-content: space-between;
 
 	h1 {
