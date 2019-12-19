@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Card, Button, Title } from '../components/AuthForm';
+import Main from '../components/Main';
+import { Button, Title } from '../components/AuthForm';
 import { useAuth } from '../context/auth';
 
 export default function Home() {
@@ -12,9 +13,11 @@ export default function Home() {
   }
 
   return (
-    <Card>
-      <Title>Home Page</Title>
-      <Button onClick={logOut}>Log out</Button>
-    </Card>
+		<div>
+			<Main>
+				<Title>Home Page</Title>
+				<Button onClick={logOut}>Log out</Button>
+			</Main>
+		</div>
   );
 }
