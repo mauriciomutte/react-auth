@@ -19,6 +19,8 @@ export default function Login() {
       password
     }).then(result => {
       if(result.status === 200) {
+				localStorage.setItem('user-id', result.data.id)
+				localStorage.setItem('user-name', result.data.name)
 				setToken(result.data.token);
         setLoggedIn(true);
       } else {

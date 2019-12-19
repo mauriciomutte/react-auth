@@ -11,7 +11,6 @@ export default function Home() {
 			<Main>
 				<Header
 					pageTitle="Home"
-					userName="Ahri"
 					userImg="https://ddragon.leagueoflegends.com/cdn/9.24.2/img/champion/Ahri.png"
 				/>
 			</Main>

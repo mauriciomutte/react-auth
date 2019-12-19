@@ -16,12 +16,14 @@ const Header = styled.div`
 	}
 `;
 
-export default ({ pageTitle, userName, userImg }) => {
+export default ({ pageTitle, userImg }) => {
+	const getName = () => localStorage.getItem('user-name');
+
 	return (
 		<Header>
 			<h1>{pageTitle}</h1>
 			<SessionUser
-				name={userName}
+				name={getName()}
 				img={userImg}
 			/>
 		</Header>
