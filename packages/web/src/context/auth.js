@@ -18,7 +18,10 @@ export const AuthProvider = ({ children }) => {
 				}
 			}).then(() => {
 				localStorage.setItem('auth-token', token);
-			}).catch(e => setToken(null));
+			}).catch(e => {
+				localStorage.clear();
+				setToken(null);
+			});
 		}
  	}, [token]);
 
