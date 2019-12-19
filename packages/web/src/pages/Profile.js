@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
 
 import Menu from '../components/Menu';
 import Main from '../components/Main';
@@ -8,6 +9,18 @@ import { Form, Label, InputText, ProfileImage, Submit } from '../components/Form
 export default function Profile() {
   const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
+
+	useEffect(() => {
+		const userID = localStorage.getItem('user-id');
+
+		Axios.get(`http://localhost:3030/profile/${userID}`)
+			.then(({ data }) => {
+				setName(data.name);
+				localStorage.setItem('user-name', data.name);
+				setEmail(data.email);
+			})
+			.catch(e => console.log(e));
+	}, []);
 
   return (
 		<div>
@@ -38,7 +51,7 @@ export default function Profile() {
 						onChange={e => { setEmail(e.target.value) }}
 					/>
 
-					<Submit type="submit" onClick={updateProfile}>Submit</Submit>
+					<Submit type="submit" >Submit</Submit>
 				</Form>
 			</Main>
 		</div>
