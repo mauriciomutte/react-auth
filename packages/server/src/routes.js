@@ -5,6 +5,7 @@ const auth = require('./middleware/auth');
 const Register = require('./controllers/Register');
 const Login = require('./controllers/Login');
 
+// Auth
 routes.get('/auth', auth, (req, res) => {
 	res.send('Authenticated');
 });
