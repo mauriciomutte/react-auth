@@ -30,6 +30,9 @@ export default createGlobalStyle`
 		line-height: 1;
     font-family: 'Courier Prime', monospace;
 	}
+	html {
+		background-color: #f1f1f1;
+	}
 	button {
 		cursor: pointer;
 	}
