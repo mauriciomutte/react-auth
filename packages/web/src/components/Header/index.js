@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import SessionUser from '../SessionUser';
@@ -17,13 +17,13 @@ const Header = styled.div`
 `;
 
 export default ({ pageTitle, userImg }) => {
-	const getName = () => localStorage.getItem('user-name');
+	const [name] = useState(localStorage.getItem('user-name'));
 
 	return (
 		<Header>
 			<h1>{pageTitle}</h1>
 			<SessionUser
-				name={getName()}
+				name={name}
 				img={userImg}
 			/>
 		</Header>
