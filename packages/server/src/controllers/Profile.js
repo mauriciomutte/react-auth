@@ -7,5 +7,12 @@ module.exports = {
 		const user = await User.findOne({ ID });
 
 		return res.send(user);
+	},
+
+	async update(req, res) {
+		const { ID } = req.params;
+		const { name, email } = req.body;
+
+		await User.findOneAndUpdate({ _id: ID }, { name, email });
 	}
 }
