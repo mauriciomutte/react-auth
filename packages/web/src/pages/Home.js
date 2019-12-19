@@ -3,16 +3,8 @@ import React from 'react';
 import Menu from '../components/Menu';
 import Main from '../components/Main';
 import Header from '../components/Header';
-import { useAuth } from '../context/auth';
 
 export default function Home() {
-	const [, setToken] = useAuth();
-
-  function logOut() {
-		localStorage.clear();
-		setToken(null);
-  }
-
   return (
 		<div>
 			<Menu />
