@@ -30,6 +30,9 @@ export default createGlobalStyle`
 		line-height: 1;
     font-family: 'Courier Prime', monospace;
 	}
+	button {
+		cursor: pointer;
+	}
 	ol, ul {
 		list-style: none;
 	}
