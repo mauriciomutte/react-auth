@@ -2,6 +2,7 @@ import React from 'react';
 
 import Menu from '../components/Menu';
 import Main from '../components/Main';
+import Header from '../components/Header';
 import { useAuth } from '../context/auth';
 
 export default function Home() {
@@ -16,6 +17,11 @@ export default function Home() {
 		<div>
 			<Menu />
 			<Main>
+				<Header
+					pageTitle="Home"
+					userName="Ahri"
+					userImg="https://ddragon.leagueoflegends.com/cdn/9.24.2/img/champion/Ahri.png"
+				/>
 			</Main>
 		</div>
   );
