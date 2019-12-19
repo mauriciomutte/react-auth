@@ -22,6 +22,18 @@ export default function Profile() {
 			.catch(e => console.log(e));
 	}, []);
 
+	async function updateProfile(e) {
+		e.preventDefault();
+		const userID = localStorage.getItem('user-id');
+
+		await Axios.put(`http://localhost:3030/profile/${userID}`, {
+			name,
+			email
+		}).then(() => {
+			localStorage.setItem('user-name', name);
+		}).catch(e => console.log(e));
+	}
+
   return (
 		<div>
 			<Menu />
@@ -51,7 +63,7 @@ export default function Profile() {
 						onChange={e => { setEmail(e.target.value) }}
 					/>
 
-					<Submit type="submit" >Submit</Submit>
+					<Submit type="submit" onClick={updateProfile}>Submit</Submit>
 				</Form>
 			</Main>
 		</div>
