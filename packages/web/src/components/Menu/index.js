@@ -11,7 +11,7 @@ export default () => {
 			<S.MenuNav>
 				<ul>
 					<MenuItem name="Home" link="/"/>
-					<MenuItem name="Sobre" link="/"/>
+					<MenuItem name="Profile" link="/"/>
 				</ul>
 			</S.MenuNav>
 		</S.Menu>
