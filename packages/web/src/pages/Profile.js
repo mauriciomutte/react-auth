@@ -23,14 +23,11 @@ export default function Profile() {
 	}, []);
 
 	async function updateProfile(e) {
-		e.preventDefault();
 		const userID = localStorage.getItem('user-id');
 
 		await Axios.put(`http://localhost:3030/profile/${userID}`, {
 			name,
 			email
-		}).then(() => {
-			localStorage.setItem('user-name', name);
 		}).catch(e => console.log(e));
 	}
 
@@ -42,7 +39,7 @@ export default function Profile() {
 					pageTitle="Profile"
 					userImg="https://ddragon.leagueoflegends.com/cdn/9.24.2/img/champion/Ahri.png"
 				/>
-				<Form>
+				<Form method="put">
 					<Label>Your photo:</Label>
 					<ProfileImage>
 						<img src="https://ddragon.leagueoflegends.com/cdn/9.24.2/img/champion/Ahri.png" alt="" />
