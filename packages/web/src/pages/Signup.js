@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 import { Card, Title, Form, Input, Button, Error } from '../components/AuthForm';
+import Main from '../components/Main';
 
 export default function Signup() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -32,31 +33,33 @@ export default function Signup() {
   }
 
   return (
-    <Card>
-			<Title>Signup</Title>
-      <Form>
-        <Input
-          type="text"
-          value={name}
-          onChange={e => { setName(e.target.value) }}
-          placeholder="name"
-        />
-        <Input
-          type="email"
-          value={email}
-          onChange={e => { setEmail(e.target.value) }}
-          placeholder="email"
-        />
-        <Input
-          type="password"
-          value={password}
-          onChange={e => { setPassword(e.target.value) }}
-          placeholder="password"
-        />
-        <Button type="submit" onClick={postSignup}>Sign Up</Button>
-      </Form>
-      <Link to="/login">Already have an account?</Link>
-      { isError && <Error>Opsss, houve algum erro!</Error> }
-    </Card>
+		<Main withManu={false}>
+			<Card>
+				<Title>Signup</Title>
+				<Form>
+					<Input
+						type="text"
+						value={name}
+						onChange={e => { setName(e.target.value) }}
+						placeholder="name"
+					/>
+					<Input
+						type="email"
+						value={email}
+						onChange={e => { setEmail(e.target.value) }}
+						placeholder="email"
+					/>
+					<Input
+						type="password"
+						value={password}
+						onChange={e => { setPassword(e.target.value) }}
+						placeholder="password"
+					/>
+					<Button type="submit" onClick={postSignup}>Sign Up</Button>
+				</Form>
+				<Link to="/login">Already have an account?</Link>
+				{ isError && <Error>Opsss, houve algum erro!</Error> }
+			</Card>
+		</Main>
   );
 }
