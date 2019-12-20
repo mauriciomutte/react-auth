@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
-import { Card, Title, Form, Input, Button, Error } from '../components/AuthForm';
+import { Card, Title, Form, Button, Error } from '../components/AuthForm';
+import { Label, InputText} from '../components/Form';
 import Main from '../components/Main';
 
 import { useAuth } from '../context/auth';
@@ -38,23 +39,26 @@ export default function Login() {
   }
 
   return (
-		<Main withManu={false}>
+		<Main haveMenu={false}>
 			<Card>
-				<Title>Login</Title>
+				<Title>Sign in to Company</Title>
 				<Form>
-					<Input
+					<Label>Email:</Label>
+					<InputText
 						type="email"
 						value={email}
 						onChange={e => { setEmail(e.target.value) }}
 						placeholder="email"
 					/>
-					<Input
+
+					<Label>Password:</Label>
+					<InputText
 						type="password"
 						value={password}
 						onChange={e => { setPassword(e.target.value) }}
 						placeholder="password"
 					/>
-					<Button onClick={postLogin}>Sign In</Button>
+					<Button type="submit" onClick={postLogin}>Sign In</Button>
 				</Form>
 				<Link to="/signup">Don't have an account?</Link>
 				{ isError && <Error>The email or password provided were incorrect!</Error> }

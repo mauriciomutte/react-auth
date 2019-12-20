@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
-import { Card, Title, Form, Input, Button, Error } from '../components/AuthForm';
+import { Form, Title, Button, Error, Card } from '../components/AuthForm';
+import { Label, InputText} from '../components/Form';
 import Main from '../components/Main';
 
 export default function Signup() {
@@ -33,23 +34,28 @@ export default function Signup() {
   }
 
   return (
-		<Main withManu={false}>
+    <Main withMenu={false}>
 			<Card>
-				<Title>Signup</Title>
+				<Title>Create your Account</Title>
 				<Form>
-					<Input
+					<Label>Name:</Label>
+					<InputText
 						type="text"
 						value={name}
 						onChange={e => { setName(e.target.value) }}
 						placeholder="name"
 					/>
-					<Input
+
+					<Label>Email:</Label>
+					<InputText
 						type="email"
 						value={email}
 						onChange={e => { setEmail(e.target.value) }}
 						placeholder="email"
 					/>
-					<Input
+
+					<Label>Password:</Label>
+					<InputText
 						type="password"
 						value={password}
 						onChange={e => { setPassword(e.target.value) }}
@@ -60,6 +66,6 @@ export default function Signup() {
 				<Link to="/login">Already have an account?</Link>
 				{ isError && <Error>Opsss, houve algum erro!</Error> }
 			</Card>
-		</Main>
+    </Main>
   );
 }

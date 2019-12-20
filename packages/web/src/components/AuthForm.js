@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 export const Card = styled.div`
+	align-items: center;
   box-sizing: border-box;
-  max-width: 410px;
-  margin: 0 auto;
-  padding: 0 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+	height: 100%;
+	justify-content: center;
 
 	a {
 		color: #6371c7;
@@ -16,21 +15,18 @@ export const Card = styled.div`
 
 export const Title = styled.h1`
 	color: #6371c7;
-	font-size: 3rem;
+	font-size: 34px;
+	font-weight: bold;
 `;
 
 export const Form = styled.div`
+	background-color: #fff;
+	border-radius: 15px;
   display: flex;
   flex-direction: column;
-  width: 100%;
-`;
-
-export const Input = styled.input`
-  padding: .8rem;
-  border: 1px solid #999;
-	border-radius: 5px;
-  margin-bottom: 1rem;
-  font-size: 0.8rem;
+	padding: 2em;
+	margin: 2em 1em 1em;
+	width: 400px;
 `;
 
 export const Button = styled.button`
