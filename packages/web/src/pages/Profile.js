@@ -37,7 +37,7 @@ export default function Profile() {
   return (
 		<div>
 			<Menu />
-			<Main>
+			<Main withMenu={true}>
 				<Header
 					pageTitle="Profile"
 					userImg="https://ddragon.leagueoflegends.com/cdn/9.24.2/img/champion/Ahri.png"
