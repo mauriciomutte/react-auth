@@ -33,6 +33,9 @@ export default createGlobalStyle`
 	html {
 		background-color: #f1f1f1;
 	}
+	html, body, main, #root {
+		height: 100%;
+	}
 	button {
 		cursor: pointer;
 	}
