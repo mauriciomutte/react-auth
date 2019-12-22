@@ -4,7 +4,7 @@ import Axios from 'axios';
 import Menu from '../components/Menu';
 import Main from '../components/Main';
 import Header from '../components/Header';
-import { Form, Label, InputText, ProfileImage, Submit } from '../components/Form';
+import { Form, Label, InputText, Submit } from '../components/Form';
 
 export default function Profile() {
   const [name, setName] = useState('');
@@ -16,7 +16,6 @@ export default function Profile() {
 		Axios.get(`http://localhost:3030/profile/${userID}`)
 			.then(({ data }) => {
 				setName(data.name);
-				localStorage.setItem('user-name', data.name);
 				setEmail(data.email);
 			})
 			.catch(e => console.log(e));
@@ -39,13 +38,7 @@ export default function Profile() {
 					pageTitle="Profile"
 					userImg="https://ddragon.leagueoflegends.com/cdn/9.24.2/img/champion/Ahri.png"
 				/>
-				<Form method="put">
-					<Label>Your photo:</Label>
-					<ProfileImage>
-						<img src="https://ddragon.leagueoflegends.com/cdn/9.24.2/img/champion/Ahri.png" alt="" />
-						<input type="file" />
-					</ProfileImage>
-
+				<Form>
 					<Label>Name:</Label>
 					<InputText
 						type="text"

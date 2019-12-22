@@ -10,16 +10,6 @@ export const Form = styled.form`
 	padding: 2em 3em;
 `;
 
-export const ProfileImage = styled.div`
-	margin-bottom: 2em;
-
-	img {
-		border-radius: 50%;
-		height: 100px;
-		width: 100px;
-	}
-`;
-
 export const Label = styled.label`
 	color: #6371c7;
 	font-weight: bold;
